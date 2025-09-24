@@ -91,6 +91,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Add keyboard interactions
     addKeyboardInteractions();
+    
+    // Start automatic glitch mode: initial after 0.1s, then 1s every 20s
+    startAutoGlitch();
 });
 
 // Show specific content section
@@ -604,6 +607,30 @@ function activateBrandEasterEgg() {
     }, 2000);
     
     showNotification('⚡ Glitch Mode Activated!');
+}
+
+// Auto Glitch Mode
+function triggerGlitch(durationMs = 1000) {
+    const brandName = document.querySelector('.brand-name');
+    if (!brandName) return;
+    const originalText = brandName.textContent;
+    const glitchTexts = ['Z4n3D3v', 'Z@n3D3v', 'ZaneDev', 'ZANE_DEV', 'zanedev'];
+    let glitchIndex = 0;
+    const glitchInterval = setInterval(() => {
+        brandName.textContent = glitchTexts[glitchIndex];
+        glitchIndex = (glitchIndex + 1) % glitchTexts.length;
+    }, 100);
+    setTimeout(() => {
+        clearInterval(glitchInterval);
+        brandName.textContent = originalText;
+    }, durationMs);
+}
+
+function startAutoGlitch() {
+    // Initial trigger after 0.1s
+    setTimeout(() => triggerGlitch(1000), 100);
+    // Repeat every 20s
+    setInterval(() => triggerGlitch(1000), 20000);
 }
 
 // Sound Effects
