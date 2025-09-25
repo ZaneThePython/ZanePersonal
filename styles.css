@@ -863,3 +863,24 @@ body::after {
         font-size: 0.9rem;
     }
 }
+/* Popup styles */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(26, 26, 26, 0.95);
+    padding: 20px 40px;
+    border-radius: 12px;
+    border: 2px solid #333;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.popup-content {
+    color: #ffffff;
+    font-size: 1.1rem;
+    text-align: center;
+}
