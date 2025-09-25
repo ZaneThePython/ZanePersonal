@@ -3,7 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZaneDev</title>
+    <meta name="description" content="ZaneDev - A certified epik guy who likes to make random stuff. Check out my projects and get in touch!">
+    <meta name="keywords" content="ZaneDev, developer, programming, projects, web development">
+    <meta name="author" content="ZaneDev">
+    <meta property="og:title" content="ZaneDev - Personal Website">
+    <meta property="og:description" content="Bored guy who likes to make random stuff. Check out my projects and connect with me!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://zanedev.com">
+    <meta name="robots" content="index, follow">
+    <title>ZaneDev | Personal Website</title>
     <link rel="icon" type="image/jpeg" href="Zane.jpg">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,7 +23,7 @@
         <!-- Avatar Section -->
         <div class="avatar-section">
             <div class="avatar">
-                <img src="Zane.jpg" alt="Zane's Profile Picture" class="profile-image">
+                <img src="Zane.jpg" alt="ZaneDev's Profile Picture" class="profile-image">
             </div>
             <h1 class="brand-name">ZaneDev</h1>
             <p class="tagline">Certified Epik Guy</p>
@@ -23,16 +31,16 @@
 
         <!-- About Section -->
         <div class="about-section">
-            <p class="about-text">                          Bored guy who likes to make random stuff.</p>
+            <p class="about-text">Bored guy who likes to make random stuff.</p>
             <p class="not-for-hire-note">(not for hire btw)</p>
         </div>
 
         <!-- Navigation Section -->
         <div class="navigation">
-            <a href="projects.html" class="nav-button">
+            <button class="nav-button projects-button">
                 <span>Projects</span>
-            </a>
-            <a href="https://github.com/ZaneThePython" class="nav-button" target="_blank">
+            </button>
+            <a href="https://github.com/ZaneThePython" class="nav-button" target="_blank" rel="noopener noreferrer">
                 <span>GitHub</span>
             </a>
             <a href="mailto:contact@zane.org" class="nav-button">
@@ -46,6 +54,38 @@
         </div>
     </div>
 
+    <script>
+        // Projects button popup functionality
+        document.querySelector('.projects-button').addEventListener('click', function() {
+            const popup = document.createElement('div');
+            popup.className = 'popup';
+            popup.innerHTML = `
+                <div class="popup-content">
+                    <p>No projects as of now :P</p>
+                </div>
+            `;
+            document.body.appendChild(popup);
+            
+            // Remove popup after 3 seconds
+            setTimeout(() => {
+                popup.style.opacity = '0';
+                setTimeout(() => popup.remove(), 300);
+            }, 3000);
+        });
+    </script>
     <script src="script.js"></script>
+
+    <!-- Add structured data for better SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Person",
+        "name": "ZaneDev",
+        "url": "https://zanedev.com",
+        "sameAs": [
+            "https://github.com/ZaneThePython"
+        ]
+    }
+    </script>
 </body>
 </html>
