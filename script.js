@@ -468,40 +468,83 @@ function createParticleEffect() {
     setInterval(createParticle, 2000);
 }
 
-// Add mouse trail effect
+// Add mouse trail effect with falling particles
 function addMouseTrail() {
-    const trail = [];
-    const trailLength = 20;
-
-    document.addEventListener('mousemove', function(e) {
-        const dot = document.createElement('div');
-        dot.style.position = 'fixed';
-        dot.style.width = '4px';
-        dot.style.height = '4px';
-        dot.style.background = 'rgba(0, 122, 204, 0.8)';
-        dot.style.borderRadius = '50%';
-        dot.style.left = e.clientX + 'px';
-        dot.style.top = e.clientY + 'px';
-        dot.style.pointerEvents = 'none';
-        dot.style.zIndex = '9999';
-        dot.style.transition = 'opacity 0.5s ease';
-        
-        document.body.appendChild(dot);
-        trail.push(dot);
-
-        if (trail.length > trailLength) {
-            const oldDot = trail.shift();
-            oldDot.style.opacity = '0';
-            setTimeout(() => oldDot.remove(), 500);
+    // Particle class for managing individual particles
+    class Particle {
+        constructor(x, y) {
+            this.x = x;
+            this.y = y;
+            this.size = Math.random() * 3 + 1; // Random size between 1-4
+            this.speedY = Math.random() * 1 + 0.5; // Random fall speed
+            this.speedX = (Math.random() - 0.5) * 0.5; // Slight horizontal movement
+            this.opacity = 1;
         }
 
-        setTimeout(() => {
-            if (dot.parentNode) {
-                dot.style.opacity = '0';
-                setTimeout(() => dot.remove(), 500);
-            }
-        }, 100);
+        update() {
+            this.y += this.speedY;
+            this.x += this.speedX;
+            this.opacity -= 0.01;
+        }
+
+        draw(ctx) {
+            ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fill();
+        }
+    }
+
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    document.body.appendChild(canvas);
+
+    canvas.style.position = 'fixed';
+    canvas.style.top = '0';
+    canvas.style.left = '0';
+    canvas.style.pointerEvents = 'none';
+    canvas.style.zIndex = '1000';
+
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    let particles = [];
+    let mouseX = 0;
+    let mouseY = 0;
+
+    // Track mouse position
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        
+        // Create new particles at mouse position
+        if (Math.random() > 0.5) { // Reduce particle creation rate
+            particles.push(new Particle(mouseX, mouseY));
+        }
     });
+
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        // Update and draw particles
+        particles = particles.filter(particle => {
+            particle.update();
+            particle.draw(ctx);
+            return particle.opacity > 0 && 
+                   particle.y < canvas.height &&
+                   particle.x > 0 &&
+                   particle.x < canvas.width;
+        });
+
+        requestAnimationFrame(animate);
+    }
+
+    animate();
 }
 
 
