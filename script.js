@@ -488,7 +488,7 @@ function addMouseTrail() {
         }
 
         draw(ctx) {
-            ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+            ctx.fillStyle = `rgba(0, 122, 204, ${this.opacity})`; // Blue color (#007acc)
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
             ctx.fill();
