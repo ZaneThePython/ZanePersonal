@@ -12,3 +12,4 @@
 - Glitch effects
 - SFX
 - "(not for hire btw)" text fades in after a few seconds
+- Funny FDA unapproved text *get it? cuz the FDA is for food, not websites.*
