@@ -9,4 +9,6 @@
 - Easter eggs
 - Cursor effects *(can be browser intensive)*
 - Project Links
-- etc..
+- Glitch effects
+- SFX
+- "(not for hire btw)" text fades in after a few seconds
