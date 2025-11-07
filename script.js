@@ -749,8 +749,8 @@ function addMatrixRain() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     
-    // Calculate number of dots using the formula: (screen-x / 1.5) + (screen-y / 1.75)
-    const dotCount = Math.floor((canvas.width / 1.5) + (canvas.height / 1.75));
+    // Calculate number of dots using the formula: (screen-x / 16) + (screen-y / 9)
+    const dotCount = Math.floor((canvas.width / 16) + (canvas.height / 9));
     
     // Constellation dot class
     class ConstellationDot {
@@ -868,7 +868,7 @@ function addMatrixRain() {
         canvas.height = window.innerHeight;
         
         // Recalculate dot count and recreate dots
-        const newDotCount = Math.floor((canvas.width / 1.5) + (canvas.height / 1.75));
+        const newDotCount = Math.floor((canvas.width / 16) + (canvas.height / 9));
         dots.length = 0; // Clear array
         for (let i = 0; i < newDotCount; i++) {
             dots.push(new ConstellationDot());
