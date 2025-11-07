@@ -1,5 +1,5 @@
 # ZanePersonal
-### My personal website, (avalible on https://zane.org)
+### My personal website, (available on https://zane.org)
 
 #### Features:
 - Interactive constellation background with connected dots
