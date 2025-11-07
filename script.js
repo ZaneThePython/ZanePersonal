@@ -730,7 +730,7 @@ function playSound(type) {
     }
 }
 
-// Matrix Rain Effect
+// Constellation Background Effect
 function addMatrixRain() {
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
@@ -742,48 +742,137 @@ function addMatrixRain() {
     canvas.style.height = '100%';
     canvas.style.pointerEvents = 'none';
     canvas.style.zIndex = '-1';
-    canvas.style.opacity = '0.1';
+    canvas.style.opacity = '0.5';
     
     document.body.appendChild(canvas);
     
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     
-    const matrix = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%+-/~{[|`]}";
-    const matrixArray = matrix.split("");
+    // Calculate number of dots using the formula: (screen-x / 1.5) + (screen-y / 1.75)
+    const dotCount = Math.floor((canvas.width / 1.5) + (canvas.height / 1.75));
     
-    const font_size = 10;
-    const columns = canvas.width / font_size;
-    
-    const drops = [];
-    for (let x = 0; x < columns; x++) {
-        drops[x] = 1;
-    }
-    
-    function drawMatrix() {
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.04)';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
+    // Constellation dot class
+    class ConstellationDot {
+        constructor() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.vx = (Math.random() - 0.5) * 0.5; // Random velocity X
+            this.vy = (Math.random() - 0.5) * 0.5; // Random velocity Y
+            this.radius = Math.random() * 2 + 1; // Random size between 1-3
+        }
         
-        ctx.fillStyle = '#007acc';
-        ctx.font = font_size + 'px arial';
-        
-        for (let i = 0; i < drops.length; i++) {
-            const text = matrixArray[Math.floor(Math.random() * matrixArray.length)];
-            ctx.fillText(text, i * font_size, drops[i] * font_size);
+        update() {
+            // Move the dot
+            this.x += this.vx;
+            this.y += this.vy;
             
-            if (drops[i] * font_size > canvas.height && Math.random() > 0.975) {
-                drops[i] = 0;
-            }
-            drops[i]++;
+            // Bounce off edges
+            if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+            if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+            
+            // Keep within bounds
+            this.x = Math.max(0, Math.min(canvas.width, this.x));
+            this.y = Math.max(0, Math.min(canvas.height, this.y));
+        }
+        
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+            ctx.fillStyle = '#ffffff';
+            ctx.fill();
         }
     }
     
-    setInterval(drawMatrix, 35);
+    // Create constellation dots
+    const dots = [];
+    for (let i = 0; i < dotCount; i++) {
+        dots.push(new ConstellationDot());
+    }
+    
+    // Mouse position for interaction
+    let mouseX = -1000;
+    let mouseY = -1000;
+    
+    // Track mouse position (need to use document for this canvas)
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
+    
+    // Create virtual mouse dot for interaction
+    const mouseDot = { x: mouseX, y: mouseY, radius: 3 };
+    
+    function drawConstellation() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        // Update and draw dots
+        dots.forEach(dot => {
+            dot.update();
+            dot.draw();
+        });
+        
+        // Update mouse dot position
+        mouseDot.x = mouseX;
+        mouseDot.y = mouseY;
+        
+        // Draw connections between nearby dots
+        const maxDistance = 150; // Maximum distance for connection
+        
+        // Check connections between dots
+        for (let i = 0; i < dots.length; i++) {
+            for (let j = i + 1; j < dots.length; j++) {
+                const dx = dots[i].x - dots[j].x;
+                const dy = dots[i].y - dots[j].y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                
+                if (distance < maxDistance) {
+                    // Calculate opacity based on distance (closer = more opaque)
+                    const opacity = (1 - distance / maxDistance) * 0.5;
+                    
+                    ctx.beginPath();
+                    ctx.moveTo(dots[i].x, dots[i].y);
+                    ctx.lineTo(dots[j].x, dots[j].y);
+                    ctx.strokeStyle = `rgba(255, 255, 255, ${opacity})`;
+                    ctx.lineWidth = 0.5;
+                    ctx.stroke();
+                }
+            }
+            
+            // Check connection with mouse cursor
+            const dx = dots[i].x - mouseDot.x;
+            const dy = dots[i].y - mouseDot.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            
+            if (distance < maxDistance) {
+                // Calculate opacity based on distance
+                const opacity = (1 - distance / maxDistance) * 0.8;
+                
+                ctx.beginPath();
+                ctx.moveTo(dots[i].x, dots[i].y);
+                ctx.lineTo(mouseDot.x, mouseDot.y);
+                ctx.strokeStyle = `rgba(0, 122, 204, ${opacity})`;
+                ctx.lineWidth = 1;
+                ctx.stroke();
+            }
+        }
+        
+        requestAnimationFrame(drawConstellation);
+    }
+    
+    drawConstellation();
     
     // Resize handler
     window.addEventListener('resize', () => {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
+        
+        // Recalculate dot count and recreate dots
+        const newDotCount = Math.floor((canvas.width / 1.5) + (canvas.height / 1.75));
+        dots.length = 0; // Clear array
+        for (let i = 0; i < newDotCount; i++) {
+            dots.push(new ConstellationDot());
+        }
     });
 }
 

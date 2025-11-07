@@ -56,22 +56,25 @@
 
     <script>
         // Projects button popup functionality
-        document.querySelector('.projects-button').addEventListener('click', function() {
-            const popup = document.createElement('div');
-            popup.className = 'popup';
-            popup.innerHTML = `
-                <div class="popup-content">
-                    <p>No projects as of now :P</p>
-                </div>
-            `;
-            document.body.appendChild(popup);
-            
-            // Remove popup after 3 seconds
-            setTimeout(() => {
-                popup.style.opacity = '0';
-                setTimeout(() => popup.remove(), 300);
-            }, 3000);
-        });
+        const projectsButton = document.querySelector('.projects-button');
+        if (projectsButton) {
+            projectsButton.addEventListener('click', function() {
+                const popup = document.createElement('div');
+                popup.className = 'popup';
+                popup.innerHTML = `
+                    <div class="popup-content">
+                        <p>No projects as of now :P</p>
+                    </div>
+                `;
+                document.body.appendChild(popup);
+                
+                // Remove popup after 3 seconds
+                setTimeout(() => {
+                    popup.style.opacity = '0';
+                    setTimeout(() => popup.remove(), 300);
+                }, 3000);
+            });
+        }
     </script>
     <script src="script.js"></script>
 

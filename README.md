@@ -2,7 +2,7 @@
 ### My personal website, (avalible on https://zane.org)
 
 #### Features:
-- Scrolling random character background
+- Interactive constellation background with connected dots
 - Fully static *(to be compatible with cheap hosting platforms)*
 - Open-sourced
 - Profile picture
