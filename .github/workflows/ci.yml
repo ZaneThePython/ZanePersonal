@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  lint-and-build:
+  lint-test-build:
     runs-on: ubuntu-latest
     
     strategy:
@@ -32,6 +32,9 @@ jobs:
       
     - name: Check formatting
       run: npm run format:check
+      
+    - name: Run tests
+      run: npm run test:run
       
     - name: Build project
       run: npm run build

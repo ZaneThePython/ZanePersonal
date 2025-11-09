@@ -22,6 +22,7 @@ export default [
         setTimeout: 'readonly',
         setInterval: 'readonly',
         clearInterval: 'readonly',
+        clearTimeout: 'readonly',
         IntersectionObserver: 'readonly',
         __dirname: 'readonly',
       },
@@ -31,6 +32,19 @@ export default [
       'no-console': 'off',
       'prefer-const': 'warn',
       'no-var': 'warn',
+    },
+  },
+  {
+    files: ['tests/**/*.js'],
+    languageOptions: {
+      globals: {
+        global: 'writable',
+        beforeEach: 'readonly',
+        describe: 'readonly',
+        it: 'readonly',
+        expect: 'readonly',
+        vi: 'readonly',
+      },
     },
   },
   {

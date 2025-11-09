@@ -37,4 +37,13 @@ export default defineConfig({
     port: 5173,
     open: true,
   },
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: './tests/setup.js',
+    coverage: {
+      reporter: ['text', 'html'],
+      exclude: ['node_modules/', 'dist/', 'tests/'],
+    },
+  },
 });
