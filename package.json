@@ -1,0 +1,41 @@
+{
+  "name": "zanepersonal",
+  "version": "2.0.0",
+  "description": "Modern, interactive personal website with creative visual effects and animations",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext .js,.html",
+    "lint:fix": "eslint . --ext .js,.html --fix",
+    "format": "prettier --write \"**/*.{js,html,css,json,md}\"",
+    "format:check": "prettier --check \"**/*.{js,html,css,json,md}\""
+  },
+  "keywords": [
+    "personal-website",
+    "portfolio",
+    "interactive",
+    "web-animations",
+    "particle-effects",
+    "creative-coding"
+  ],
+  "author": "ZaneDev <contact@zane.org>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ZaneThePython/ZanePersonal.git"
+  },
+  "homepage": "https://zane.org",
+  "devDependencies": {
+    "eslint": "^9.39.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-html": "^8.1.3",
+    "imagemin": "^9.0.1",
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-pngquant": "^10.0.0",
+    "prettier": "^3.6.2",
+    "terser": "^5.44.1",
+    "vite": "^7.2.2"
+  }
+}
