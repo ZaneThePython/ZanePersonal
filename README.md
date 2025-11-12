@@ -145,39 +145,6 @@ Target metrics:
 - Time to Interactive: <3.5s
 - Lighthouse Score: >90
 
-## 🗺 Roadmap
-
-### ✅ Completed
-
-- [x] Initial website launch
-- [x] Interactive visual effects
-- [x] Easter eggs and hidden features
-- [x] Responsive design
-- [x] Code modularization
-- [x] ESLint and Prettier setup
-- [x] Accessibility improvements (ARIA labels, semantic HTML)
-- [x] SEO optimization (meta tags, structured data, sitemap)
-- [x] CSS design tokens
-- [x] Build system (Vite)
-
-### 🚧 In Progress
-
-- [ ] CI/CD pipeline with GitHub Actions
-- [ ] Unit tests with Vitest
-- [ ] Lighthouse CI integration
-- [ ] Automated accessibility checks
-
-### 📋 Planned
-
-- [ ] Blog section for writing
-- [ ] Project portfolio with detailed case studies
-- [ ] Dark/light theme toggle
-- [ ] Privacy-focused analytics
-- [ ] Automated changelog generation
-- [ ] Performance monitoring dashboard
-- [ ] Progressive Web App (PWA) features
-- [ ] Internationalization (i18n) support
-
 ## 🤝 Contributing
 
 While this is a personal project, suggestions and feedback are welcome! Feel free to:
@@ -206,4 +173,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Note:** This website is not FDA approved (because websites don't need FDA approval, obviously! 😄)
 
-_Last updated: November 2024_
+_Last updated: November 2025_
