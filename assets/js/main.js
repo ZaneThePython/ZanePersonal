@@ -5,6 +5,18 @@ function setFooterYear() {
   }
 }
 
+function showToast(message) {
+  const toast = document.getElementById('toast');
+  if (!toast) return;
+
+  toast.textContent = message;
+  toast.classList.add('visible');
+
+  setTimeout(() => {
+    toast.classList.remove('visible');
+  }, 1500);
+}
+
 function animateCount(elementId, target, duration = 1200) {
   const element = document.getElementById(elementId);
   if (!element) return;
@@ -62,8 +74,10 @@ function initCopyEmail() {
     try {
       await navigator.clipboard.writeText(email);
       button.textContent = 'Copied ✅';
+      showToast('Email copied to clipboard');
     } catch {
       button.textContent = email;
+      showToast('Copy unavailable, showing email instead');
     }
 
     setTimeout(() => {
@@ -104,8 +118,9 @@ function initTaglineRotation() {
 
   const lines = [
     'Certified Epik Guy',
-    'Building odd but useful things',
+    'Builder of weirdly useful tools',
     'Shipping static-first experiments',
+    'Professional random stuff creator',
   ];
 
   let index = 0;
@@ -113,7 +128,80 @@ function initTaglineRotation() {
   setInterval(() => {
     index = (index + 1) % lines.length;
     tagline.textContent = lines[index];
-  }, 3800);
+  }, 3200);
+}
+
+function launchPixelBurst() {
+  const colors = ['#53b6ff', '#9a7fff', '#53d28c', '#ffce5b'];
+
+  for (let index = 0; index < 26; index += 1) {
+    const pixel = document.createElement('div');
+    pixel.className = 'pixel';
+    pixel.style.left = `${Math.random() * window.innerWidth}px`;
+    pixel.style.bottom = `${40 + Math.random() * 80}px`;
+    pixel.style.background = colors[index % colors.length];
+    pixel.style.animationDelay = `${Math.random() * 180}ms`;
+    document.body.appendChild(pixel);
+
+    setTimeout(() => {
+      pixel.remove();
+    }, 1000);
+  }
+}
+
+function initEpikMode() {
+  const epikButton = document.getElementById('epik-mode');
+  if (!epikButton) return;
+
+  epikButton.addEventListener('click', () => {
+    const active = document.body.classList.toggle('epik-mode');
+    launchPixelBurst();
+    showToast(active ? 'Epik mode activated ⚡' : 'Epik mode disengaged');
+  });
+}
+
+function initTerminalFeed() {
+  const terminal = document.getElementById('terminal-line');
+  if (!terminal) return;
+
+  const lines = [
+    'booting zane-core...',
+    'compiling questionable ideas into useful tools',
+    'optimizing static deploy for cloudflare pages',
+    'shipping feature: "make it epik"',
+    'status: all systems slightly chaotic and online',
+  ];
+
+  let index = 0;
+
+  setInterval(() => {
+    index = (index + 1) % lines.length;
+    terminal.textContent = lines[index];
+  }, 2800);
+}
+
+function initSecretSequence() {
+  const brand = document.querySelector('.brand-name');
+  if (!brand) return;
+
+  let keys = '';
+
+  document.addEventListener('keydown', (event) => {
+    keys += event.key.toLowerCase();
+    if (keys.length > 4) {
+      keys = keys.slice(-4);
+    }
+
+    if (keys === 'epik') {
+      brand.classList.add('glitch');
+      launchPixelBurst();
+      showToast('secret unlocked: ultra epik');
+      setTimeout(() => {
+        brand.classList.remove('glitch');
+      }, 1700);
+      keys = '';
+    }
+  });
 }
 
 function initializeApp() {
@@ -123,6 +211,9 @@ function initializeApp() {
   initCopyEmail();
   initRevealAnimations();
   initTaglineRotation();
+  initEpikMode();
+  initTerminalFeed();
+  initSecretSequence();
 }
 
 if (document.readyState === 'loading') {

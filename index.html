@@ -5,17 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="ZaneDev - a builder who ships experimental tools, polished web experiences, and playful side projects."
+      content="ZaneDev - certified epik guy building weirdly useful experiments, polished web projects, and fun internet chaos."
     />
     <meta
       name="keywords"
       content="ZaneDev, developer, portfolio, projects, web development, interactive websites"
     />
     <meta name="author" content="ZaneDev" />
-    <meta property="og:title" content="ZaneDev - Interactive Personal Website" />
+    <meta property="og:title" content="ZaneDev - Certified Epik Guy" />
     <meta
       property="og:description"
-      content="Explore projects, toolset highlights, and contact options on ZaneDev's personal website."
+      content="A playful, static-first personal site with experiments, project highlights, and secret easter eggs."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://zanedev.com" />
@@ -38,18 +38,20 @@
         </div>
         <h1 class="brand-name" tabindex="0">ZaneDev</h1>
         <p class="tagline" id="tagline">Certified Epik Guy</p>
+        <p class="sub-tagline">building random stuff that occasionally becomes useful</p>
       </header>
 
       <section class="about-section card reveal" aria-labelledby="about-heading">
-        <h2 id="about-heading">About</h2>
+        <h2 id="about-heading">Status Board</h2>
         <p class="about-text">
-          I build random things that are somehow useful, occasionally chaotic, and usually fun.
-          This site is a tiny command center for what I’m creating.
+          I ship quick experiments, polish odd ideas into real tools, and keep everything static-first
+          so it deploys cleanly on Cloudflare Pages.
         </p>
         <div class="status-row" aria-label="Current status">
           <span class="status-pill">🟢 Building</span>
-          <span class="status-pill">🌐 Shipping static-first</span>
-          <span class="status-pill">⚡ Fast iteration</span>
+          <span class="status-pill">🌐 Static-first</span>
+          <span class="status-pill">⚡ Chaotic good</span>
+          <span class="status-pill">🧪 Shipping experiments</span>
         </div>
       </section>
 
@@ -75,14 +77,15 @@
         <button class="nav-button" id="copy-email" data-email="contact@zane.org" type="button">
           Copy Email
         </button>
+        <button class="nav-button nav-button-accent" id="epik-mode" type="button">Toggle Epik Mode</button>
       </nav>
 
       <section class="insights-grid" aria-label="Highlights">
         <article class="card reveal">
           <h2>Featured Build</h2>
           <p>
-            <strong>ZDTT</strong> is a playground where I test ideas quickly and turn rough concepts
-            into something you can click and use.
+            <strong>ZDTT</strong> is my sandbox where sketch ideas become clickable prototypes faster than
+            they probably should.
           </p>
         </article>
 
@@ -91,8 +94,8 @@
           <ul class="tool-list">
             <li>JavaScript / TypeScript</li>
             <li>Python automation</li>
-            <li>Design + UX polishing</li>
-            <li>Performance-first web shipping</li>
+            <li>UI/UX polish and accessibility</li>
+            <li>Performance-first static deployments</li>
           </ul>
         </article>
 
@@ -104,11 +107,19 @@
         </article>
       </section>
 
+      <section class="terminal card reveal" aria-label="Live feed">
+        <h2>Live Build Feed</h2>
+        <p class="terminal-line" id="terminal-line">booting zane-core...</p>
+        <p class="terminal-hint">Hint: type <kbd>e</kbd><kbd>p</kbd><kbd>i</kbd><kbd>k</kbd> 👀</p>
+      </section>
+
       <footer class="disclaimer" role="contentinfo">
         <p><em>*Note* This website is not FDA approved</em></p>
         <p class="footer-note">© <span id="year"></span> ZaneDev</p>
       </footer>
     </main>
+
+    <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
 
     <script type="module" src="assets/js/main.js"></script>
 
