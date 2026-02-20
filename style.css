@@ -1,0 +1,61 @@
+body {
+    background-color: #101010;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+.content {
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+span {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+img {
+    height: 100px;
+    image-rendering: pixelated;
+}
+
+.logo {
+    height: 150px;
+    width: auto;
+}
+
+p {
+    color: #fff;
+}
+h1 {
+    color: #fff;
+}
+h2 {
+    color: #fff;
+}
+h3 {
+    color: #fff;
+}
+.eeto {
+    height: 31px;
+    width: auto;
+    image-rendering: pixelated;
+}
+a {
+    color: #5f95ff;
+    text-decoration: none;
+}
+.why-are-you-looking-at-my-code {
+    height: 62px;
+    width: auto;
+    image-rendering: pixelated;
+    margin: 1px;
+    display: inline;
+}
