@@ -59,3 +59,19 @@ a {
     margin: 1px;
     display: inline;
 }
+.song-cover {
+    height: 200px;
+    width: auto;
+}
+.mini-text {
+    color: #fff;
+    font-size: 12px;
+    font-style: italic;
+    text-align: center;
+}
+.music audio {
+    width: auto;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+}
