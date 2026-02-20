@@ -1,5 +1,7 @@
 body {
     background-color: #101010;
+    background-image: url("checkered.png");
+    background-repeat: repeat;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -14,6 +16,12 @@ header {
     color: #fff;
     padding: 20px;
     text-align: center;
+    max-width: 900px;
+}
+footer {
+    max-width: 900px;
+    align-items: center;
+    justify-content: center;
 }
 span {
     display: flex;
@@ -75,3 +83,7 @@ a {
     align-items: center;
     justify-content: center;
 }
+ul li::marker {
+    color: white; /* Or any other color value (e.g., hex code, RGB) */
+  }
+  
