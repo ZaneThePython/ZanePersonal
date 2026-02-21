@@ -91,7 +91,6 @@ ul li::marker {
     width: auto;
     image-rendering: pixelated;
     text-align: center;
-    position: sticky;
 }
 .nav-container {
     display: block;
