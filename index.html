@@ -20,6 +20,8 @@
             <a href="https://zane.org/links.html"><img class="nav-item" src="https://zane.org/buttons/globe05.gif"><br>Links</a>
             <br><br>
             <a href="https://zaney.atabook.org/"><img class="nav-item" src="https://zane.org/buttons/gb.gif"><br>Guestbook</a>
+            <br><br>
+            <a href="https://zane.org/info.html"><img class="nav-item" src="https://zane.org/buttons/info.gif"><br>Information</a>
         </div>
     </header>
     <div class="content">
@@ -36,7 +38,7 @@
         <h1>Background Music</h1>
         <img class="song-cover" src="swsd-logo.jpg" alt="song cover">
         <p><a href="https://tangermusic.bandcamp.com/track/somewhere-someday">somewhere, someday</a> - <a href="https://tangermusic.bandcamp.com">Tanger</a></p>
-        <audio controls autoplay loop>
+        <audio id="bg-music" controls autoplay loop>
             <source src="music.mp3" type="audio/mpeg">
                 Your browser does not support the audio element.
         </audio>
@@ -66,5 +68,16 @@
         <img class="blinkies" src="https://zane.org/buttons/happiness.gif">
          <p class="mini-evil-text"><i>I AM NOT FRIENDLY TO MOBILE USERS HAHAHAHAHAHA</i></p>
     </footer>
+    <script>
+        const music = document.getElementById("bg-music");
+    
+        function tryPlayMusic() {
+            if (music && music.paused) {
+                music.play().catch(() => {});
+            }
+        }
+    
+        window.addEventListener("click", tryPlayMusic, { once: true });
+    </script>
 </body>
 </html>
