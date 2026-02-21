@@ -86,4 +86,17 @@ a {
 ul li::marker {
     color: white; /* Or any other color value (e.g., hex code, RGB) */
   }
-  
+.nav-item {
+    height: 100px;
+    width: auto;
+    image-rendering: pixelated;
+    text-align: center;
+    position: sticky;
+}
+.nav-container {
+    display: block;
+    position: absolute;
+    text-align: center;
+    top: 20px;
+    left: 40px;
+}
