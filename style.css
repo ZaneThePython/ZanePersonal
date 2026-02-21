@@ -77,6 +77,12 @@ a {
     font-style: italic;
     text-align: center;
 }
+.mini-evil-text {
+    color: #ff0000;
+    font-size: 12px;
+    font-style: italic;
+    text-align: center;
+}
 .music audio {
     width: auto;
     height: auto;
@@ -86,7 +92,7 @@ a {
 ul li::marker {
     color: white; /* Or any other color value (e.g., hex code, RGB) */
   }
-.nav-item {
+  .nav-item {
     height: 100px;
     width: auto;
     image-rendering: pixelated;
@@ -96,6 +102,6 @@ ul li::marker {
     display: block;
     position: absolute;
     text-align: center;
-    top: 20px;
+    top: 40px;
     left: 40px;
 }
