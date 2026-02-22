@@ -61,11 +61,9 @@ a {
     text-decoration: none;
 }
 .why-are-you-looking-at-my-code {
-    height: 62px;
+    height: 31px;
     width: auto;
     image-rendering: pixelated;
-    margin: 1px;
-    display: inline;
 }
 .song-cover {
     height: 200px;
@@ -108,4 +106,12 @@ ul li::marker {
 .blinkies {
     height: 31px;
     image-rendering: pixelated;
+}
+.waylamc-wall {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    max-width: 800px;
+    flex-wrap: wrap;
 }
