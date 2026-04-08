@@ -102,6 +102,7 @@ ul li::marker {
     text-align: center;
     top: 40px;
     left: 40px;
+    z-index: 3;
 }
 .blinkies {
     height: 31px;
@@ -114,4 +115,8 @@ ul li::marker {
     justify-content: center;
     max-width: 800px;
     flex-wrap: wrap;
+}
+
+#flood {
+    z-index: 2;
 }
