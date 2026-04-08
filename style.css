@@ -11,90 +11,109 @@ header {
     color: #fff;
     padding: 20px;
     text-align: center;
+    z-index: 1;
 }
 .content {
     color: #fff;
     padding: 20px;
     text-align: center;
     max-width: 800px;
+    z-index: 1;
 }
 footer {
     max-width: 800px;
     align-items: center;
     justify-content: center;
+    z-index: 1;
 }
 span {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    z-index: 1;
 }
 img {
     height: 100px;
     image-rendering: pixelated;
+    z-index: 1;
 }
 
 .logo {
     height: 155px;
     width: auto;
+    z-index: 1;
 }
 
 p {
     color: #fff;
+    z-index: 1;
 }
 h1 {
     color: #fff;
+    z-index: 1;
 }
 h2 {
     color: #fff;
+    z-index: 1;
 }
 h3 {
     color: #fff;
+    z-index: 1;
 }
 .eeto {
     height: 31px;
     width: auto;
     image-rendering: pixelated;
+    z-index: 1;
 }
 a {
     color: #5f95ff;
     text-decoration: none;
+    z-index: 1;
 }
 .why-are-you-looking-at-my-code {
     height: 31px;
     width: auto;
     image-rendering: pixelated;
+    z-index: 1;
 }
 .song-cover {
     height: 200px;
     width: auto;
+    z-index: 1;
 }
 .mini-text {
     color: #fff;
     font-size: 12px;
     font-style: italic;
     text-align: center;
+    z-index: 1;
 }
 .mini-evil-text {
     color: #ff0000;
     font-size: 12px;
     font-style: italic;
     text-align: center;
+    z-index: 1;
 }
 .music audio {
     width: auto;
     height: auto;
     align-items: center;
     justify-content: center;
+    z-index: 1;
 }
 ul li::marker {
     color: white; /* Or any other color value (e.g., hex code, RGB) */
+    z-index: 1;
   }
   .nav-item {
     height: 100px;
     width: auto;
     image-rendering: pixelated;
     text-align: center;
+    z-index: 1;
 }
 .nav-container {
     display: block;
@@ -107,6 +126,7 @@ ul li::marker {
 .blinkies {
     height: 31px;
     image-rendering: pixelated;
+    z-index: 1;
 }
 .waylamc-wall {
     display: flex;
@@ -115,6 +135,7 @@ ul li::marker {
     justify-content: center;
     max-width: 800px;
     flex-wrap: wrap;
+    z-index: 1;
 }
 
 #flood {
