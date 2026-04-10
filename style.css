@@ -141,3 +141,11 @@ ul li::marker {
 #flood {
     z-index: -2;
 }
+
+.blog {
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    max-width: 800px;
+    z-index: 1;
+}
