@@ -10,12 +10,12 @@
 </head>
 <body>
     <header>
-        <a href="index.html"><img class="logo" src="logo.gif" alt="logo"></a>
+        <a href="main.html"><img class="logo" src="logo.gif" alt="logo"></a>
         <br><br>
         <a href="https://github.com/ZaneThePython/ZanePersonal"><img class="eeto" src="https://zane.org/buttons/code-here.png" alt="Code base link!!! WOAHHHHHHHHHH CODE?!! THAT'S SOOOO CRAZY WOAHHHHH IT'S AN OPEN SOURCED WEBSITE"></a>
         <a href="https://zaney.atabook.org/"><img class="eeto" src="https://zane.org/buttons/guestbook.gif"></a>
         <div class="nav-container">
-            <a href="index.html"><img class="nav-item" src="https://zane.org/buttons/cd.gif"><br>Home</a>
+            <a href="main.html"><img class="nav-item" src="https://zane.org/buttons/cd.gif"><br>Home</a>
             <br><br>
             <a href="links.html"><img class="nav-item" src="https://zane.org/buttons/globe05.gif"><br>Links</a>
             <br><br>
@@ -84,23 +84,13 @@
         <h1>Background Music</h1>
         <img class="song-cover" src="song.png" alt="song cover">
         <p>Credits EX - <a href="https://frums.bandcamp.com">Frums</a></p>
-        <audio id="bg-music" controls autoplay loop>
+        <audio id="bg-music" controls loop>
             <source src="music.mp3" type="audio/mpeg">
                 Your browser does not support the audio element.
         </audio>
         <p class="mini-text"><i>Please enable autoplay for the best experience</i></p>
     </div>
-    <script>
-        const music = document.getElementById("bg-music");
-    
-        function tryPlayMusic() {
-            if (music && music.paused) {
-                music.play().catch(() => {});
-            }
-        }
-    
-        window.addEventListener("click", tryPlayMusic, { once: true });
-    </script>
+    <script src="music-frame.js"></script>
 
 </body>
 </html>
